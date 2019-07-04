@@ -1,21 +1,23 @@
 import Vue from 'vue'
 import './plugins/vuetify'
 import App from './App.vue'
-// import VueRouter from 'vue-router'
+import VueRouter from 'vue-router'
 
-// import Article from './components/Article'
+import Articles from './components/ArticlesList.vue'
+import Post from './components/Article.vue'
 
-// Vue.use(VueRouter)
+Vue.use(VueRouter)
 
-// var router = new VueRouter({
-//   routes: [
-//     {path: '/article', component: Article}
-//   ]
-// })
+var router = new VueRouter({
+  routes: [
+    {path: '*', component: Articles},
+    {path: '/post/:id', name:'post', component: Post}
+  ]
+})
 
 Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
-  // router: router
+  router: router
 }).$mount('#app')

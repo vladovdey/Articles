@@ -8,7 +8,7 @@
 
     <v-content>
       <v-container fluid>
-        <ArticlesList :posts="posts"/>
+        <router-view></router-view>
       </v-container>
       
     </v-content>
@@ -16,24 +16,12 @@
 </template>
 
 <script>
-import ArticlesList from './components/ArticlesList.vue'
-import axios from 'axios'
-
 
 export default {
   name: 'App',
-  components: {
-    ArticlesList
-  },
   data () {
     return {
-      posts:[]
     }
   },
-  created: function(){
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-    .then(res => this.posts = res.data)
-    .catch(err => console.log(err))
-  }
 }
 </script>
